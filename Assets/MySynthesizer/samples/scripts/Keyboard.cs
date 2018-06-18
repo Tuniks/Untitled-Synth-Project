@@ -10,9 +10,9 @@ namespace MySpace.Sample
         private MySyntheStation syntheStation = null;
 
         [SerializeField]
-        private KeyProperty blackKey = null;
+        private ThreeDKey blackKey = null;
         [SerializeField]
-        private KeyProperty whiteKey = null;
+        private ThreeDKey whiteKey = null;
         [SerializeField]
         private int baseNote = 60;
 
@@ -105,8 +105,8 @@ namespace MySpace.Sample
                 key.transform.localPosition = pos;
                 key.transform.localScale = scl;
                 key.transform.rotation = rot;
-                key.OnKeyDownEvent.AddListener(() => OnKeyDown(index));
-                key.OnKeyUpEvent.AddListener(() => OnKeyUp(index));
+                key.OnMouseDownEvent.AddListener(() => OnKeyDown(index));
+                key.OnMouseUpEvent.AddListener(() => OnKeyUp(index));
             }
             for (int i = 0; i < numKeys; i++)
             {
@@ -121,12 +121,14 @@ namespace MySpace.Sample
                 var scl = blackKey.transform.localScale;
                 var rot = blackKey.transform.rotation;
                 pos.x += ((i / 12) * 14 + o) * (width / 2);
+                pos.y += 7;
+                pos.z += 15;
                 key.transform.SetParent(transform);
                 key.transform.localPosition = pos;
                 key.transform.localScale = scl;
                 key.transform.rotation = rot;
-                key.OnKeyDownEvent.AddListener(() => OnKeyDown(index));
-                key.OnKeyUpEvent.AddListener(() => OnKeyUp(index));
+                key.OnMouseDownEvent.AddListener(() => OnKeyDown(index));
+                key.OnMouseUpEvent.AddListener(() => OnKeyUp(index));
             }
             whiteKey.gameObject.SetActive(false);
             blackKey.gameObject.SetActive(false);

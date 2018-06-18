@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class ThreeDKey : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public UnityEvent OnMouseDownEvent = new UnityEvent();
+    public UnityEvent OnMouseUpEvent = new UnityEvent();
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -17,5 +21,13 @@ public class ThreeDKey : MonoBehaviour {
     void OnMouseDown()
     {
         Debug.Log("oi");
+        OnMouseDownEvent.Invoke();
     }
+
+    void OnMouseUp()
+    {
+        Debug.Log("oi");
+        OnMouseUpEvent.Invoke();
+    }
+
 }

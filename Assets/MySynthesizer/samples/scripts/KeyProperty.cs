@@ -12,6 +12,8 @@ namespace MySpace.Sample
         private bool downed = false;
         private readonly UnityEvent onKeyDownEvent = new UnityEvent();
         private readonly UnityEvent onKeyUpEvent = new UnityEvent();
+        private readonly UnityEvent onMouseDownEvent = new UnityEvent();
+        private readonly UnityEvent onMouseUpEvent = new UnityEvent();
 
         //[SerializeField]
         //private Sprite normal = null;
@@ -32,12 +34,27 @@ namespace MySpace.Sample
                 return onKeyUpEvent;
             }
         }
+        public UnityEvent OnMouseDownEvent
+        {
+            get
+            {
+                return onMouseDownEvent;
+            }
+        }
+        public UnityEvent OnMouseUpEvent
+        {
+            get
+            {
+                return onMouseUpEvent;
+            }
+        }
         private void down()
         {
             if (!downed)
             {
                 downed = true;
                 onKeyDownEvent.Invoke();
+                onMouseDownEvent.Invoke();
                 //if (pushed != null)
                 //{
                 //    image.sprite = pushed;
@@ -50,10 +67,11 @@ namespace MySpace.Sample
             {
                 downed = false;
                 onKeyUpEvent.Invoke();
-            //    if (normal != null)
-            //    {
-            //        image.sprite = normal;
-            //    }
+                onMouseUpEvent.Invoke();
+                //    if (normal != null)
+                //    {
+                //        image.sprite = normal;
+                //    }
             }
         }
         private void OnEnable()
