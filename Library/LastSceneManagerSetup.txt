@@ -2,6 +2,6 @@ sceneSetups:
 - path: Assets/Scenes/MainSceneWakeman.unity
   isLoaded: 0
   isActive: 0
-- path: Assets/test-keyboard-iuro.unity
+- path: Assets/Scenes/keyboard-test-iuro.unity
   isLoaded: 1
   isActive: 1
